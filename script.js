@@ -11,21 +11,20 @@ function adicionar() {
       window.alert('A tarefa atingiu o limite de 100 caracteres')
     }
     else {
+
       contador++
       let NovoItem = `
-  <section id="${contador}" class="ContainerTarefas">
-            <div id="CirculoTarefa"><img src="circle_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt=""></div>
-            <div id="ConteudoTarefa"><p class="TextoConteudoTarefa">${InputDigiteSuaTarefa.value}</p></div>
-            <div onclick="deletar(contador)" id="Deletar"><button><img src="delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" alt=""><p>Deletar</p></button></div>
+  <section id="${contador}" class="item">
+            <div onclick="marcarTarefa(${contador})" id="CirculoTarefa"item><img id="icone_${contador}" src="circulo.png" alt=""></div>
+            <div onclick="marcarTarefa(${contador})" id="ConteudoTarefa"><p class="TextoConteudoTarefa">${InputDigiteSuaTarefa.value}</p></div>
+            <div onclick="deletar(${contador})" id="Deletar"><button><img src="lixeira.png" alt=""><p>Deletar</p></button></div>
         </section>`
       AreaLista.innerHTML += NovoItem
       InputDigiteSuaTarefa.value = ''
       InputDigiteSuaTarefa.focus()
     }
-
   }
 }
-
 InputDigiteSuaTarefa.addEventListener('keyup', function (event) {
   if (event.keyCode === 13) {
     event.preventDefault()
@@ -36,4 +35,24 @@ InputDigiteSuaTarefa.addEventListener('keyup', function (event) {
 function deletar(id){
 var tarefa = document.getElementById(id)
 tarefa.remove()
+}
+
+function marcarTarefa(id)
+{
+var item = document.getElementById(id)
+var classe = item.getAttribute('class')
+var icone = document.getElementById('icone_' + id)
+if(classe == "item")
+{
+
+  item.classList.add('item-clicado')
+  icone.src = 'circulo-marcado.png'
+  item.parentNode.appendChild(item)
+}
+else
+{
+  item.classList.remove('item-clicado')
+  item.classList.add('item')
+  icone.src = 'circulo.png'
+}
 }

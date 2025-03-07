@@ -23,7 +23,7 @@ header {
     gap: 20px;
 }
 
-#ContainerDigiteSuaTarefa, .ContainerTarefas {
+#ContainerDigiteSuaTarefa, .item {
 
     align-items: center;
     justify-content: center;
@@ -84,7 +84,8 @@ main {
     height: 100%;
 }
 
-.ContainerTarefas {
+.item {
+    cursor: pointer;
     background-color: white;
     align-items: center;
     justify-content: start;
@@ -144,17 +145,17 @@ button >img {
 {
     width: 100%;
 }
-/*
-#ConteudoTarefa
+
+.item-clicado > #ConteudoTarefa
 {
     color: gray;
     text-decoration: line-through;
 }
-.ContainerTarefas
+    
+ .item-clicado
 {
     background-color: rgb(230, 255, 192);
 }
-*/
 
 button
 {
