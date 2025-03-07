@@ -6,7 +6,8 @@ var TextoConteudoTarefa = document.querySelectorAll('.TextoConteudoTarefa')
 var BotaoDeletar = document.getElementById('Deletar')
 let contador = 0
 function adicionar() {
-  if (InputDigiteSuaTarefa.value !== "" && InputDigiteSuaTarefa.value !== null && InputDigiteSuaTarefa !== undefined) {
+  if (InputDigiteSuaTarefa.value !== "" && InputDigiteSuaTarefa.value !== null && InputDigiteSuaTarefa !== undefined) 
+  {
     if (InputDigiteSuaTarefa.value.length > 100) {
       window.alert('A tarefa atingiu o limite de 100 caracteres')
     }
@@ -24,7 +25,12 @@ function adicionar() {
       InputDigiteSuaTarefa.focus()
     }
   }
+  else
+{
+ window.alert("ERRO, POR FAVOR DIGITE UM NOME VALIDO.")
 }
+}
+
 InputDigiteSuaTarefa.addEventListener('keyup', function (event) {
   if (event.keyCode === 13) {
     event.preventDefault()
